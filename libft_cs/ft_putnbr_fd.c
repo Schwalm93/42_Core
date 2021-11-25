@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschwalm <cschwalm@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 08:18:13 by cschwalm          #+#    #+#             */
-/*   Updated: 2021/11/25 08:24:27 by cschwalm         ###   ########.fr       */
+/*   Updated: 2021/11/25 12:25:54 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

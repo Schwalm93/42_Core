@@ -1,61 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   -ft_strtrim.c                                      :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 19:44:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2021/11/23 20:36:22 by cschwalm         ###   ########.fr       */
+/*   Updated: 2021/11/25 12:56:14 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+static	int	ft_charset(char c, const char *set)
 {
-	char			*str;
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	k;
-	unsigned int	l;
-	i = 0;
-	j = 0;
-	k = ft_strlen(s1);
-	l = ft_strlen(set);
+	size_t	i;
 
-	if (s1[0] == set[0])
+	i = 0;
+	while (set[i])
 	{
+		if (set[i] == c)
+			return (1);
 		i++;
 	}
-	if (s1[k - 1] == set[0])
-	{
-		k--;
-	}
-	j = k - i;
-	k = 0;
-	str = malloc(sizeof(char[j]));
-	if (str == NULL)
-	{
-		return (NULL);
-	}
-	while (j > 0)
-	{
-		str[k] = s1[i];
-		j--;
-		i++;
-		k++;
-	}
-	return (str);
+	return (0);
 }
 
-int	main(void)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	char *p;
+	char	*str;
+	size_t	i;
+	size_t	bgn;
+	size_t	end;
 
-	p = ft_strtrim("TesTT", "T");
-
-	printf("Der String ist: %s \n", p);
-
-	return (0);
+	if (!s1 || !set)
+		return (NULL);
+	bgn = 0;
+	while (s1[bgn] && ft_charset(s1[bgn], set))
+		bgn++;
+	end = ft_strlen(s1);
+	while (end > bgn && ft_charset(s1[end - 1], set))
+		end--;
+	str = (char *)malloc(sizeof(*s1) * (end - bgn + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (bgn < end)
+		str[i++] = s1[bgn++];
+	str[i] = 0;
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 14:57:14 by cschwalm          #+#    #+#             */
-/*   Updated: 2021/11/23 20:37:01 by cschwalm         ###   ########.fr       */
+/*   Updated: 2021/11/25 13:11:41 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	str = malloc(sizeof(char [len]));
-	if (str == NULL || (len + start) > ft_strlen(s))
+	if (str == NULL || (len + start) > (unsigned int) ft_strlen(s))
 	{
 		return (NULL);
 	}

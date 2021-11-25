@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-/*void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned int		i;
 	unsigned char		*p_dest;
 	const unsigned char	*p_src;
 
-	if (dest == NULL && src == NULL)
+	if (dest == NULL || src == NULL)
 	{
 		return (NULL);
 	}
@@ -33,14 +33,4 @@
 		i++;
 	}
 	return (dest);
-}
-*/
-int main ()
-{
-  char str[20] = "Moin User!";
-  char str2[] = "Vögel";
-  memmove( str, str2, 6 );
-//	ft_memmove( str+5, str, 12 );
-  puts( str );
-  return 0;
 }
