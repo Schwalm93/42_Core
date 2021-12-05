@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:58:33 by cschwalm          #+#    #+#             */
-/*   Updated: 2021/11/25 13:01:04 by cschwalm         ###   ########.fr       */
+/*   Updated: 2021/12/04 12:55:35 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,23 @@ char	**ft_split(const char *s, char c)
 		count_str++;
 	}
 	return (str);
+}
+int	main(void)
+{
+	char str[] = "Das:Ist:der:String";
+	char **p;
+	unsigned int i;
+
+	i = 0;
+	p = ft_split(str, ':');
+
+	while (p[i] != 0)
+	{
+	printf("p[%d]: %s \n", i,p[i]);
+	i++;
+	}
+
+	free(p);
+
+	return 0;
 }

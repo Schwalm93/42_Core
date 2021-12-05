@@ -21,11 +21,11 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	{
 		if (str1[i] != str2[i])
 		{
-			return (str1[i] - str2[i]);
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 		}
 		i++;
 	}
 	if (i != n)
-		return (str1[i] - str2[i]);
+		return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 	return (0);
 }

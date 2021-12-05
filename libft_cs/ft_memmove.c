@@ -14,23 +14,37 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned int		i;
-	unsigned char		*p_dest;
-	const unsigned char	*p_src;
+	size_t				i;
+	unsigned char		*cdest;
+	unsigned char		*csrc;
 
-	if (dest == NULL || src == NULL)
-	{
-		return (NULL);
-	}
 	i = 0;
-	p_dest = dest;
-	p_src = src;
+	if (!src || !dest)
+		return (NULL);
+	cdest = (unsigned char *)dest;
+	csrc = (unsigned char *)src;
+	if (csrc < cdest)
+	{
+		while (n--)
+		{
+			cdest[n] = csrc[n];
+		}
+		return (dest);
+	}
 	while (i < n)
-	{	
-		*p_dest = *p_src;
-		p_dest++;
-		p_src++;
+	{
+		cdest[i] = csrc[i];
 		i++;
 	}
 	return (dest);
+}
+
+int main ()
+{
+  char str[20] = "Moin User!";
+  char str2[] = "Vögel";
+  memmove( str, str2, 6 );
+//	ft_memmove( str+5, str, 12 );
+  puts( str );
+  return 0;
 }

@@ -10,19 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
-	int	v;
+	long	nbr;
+	int		isnegative;
 
-	v = 0;
-	while (*str != 0)
+	nbr = 0;
+	isnegative = 1;
+	while (nptr[0] == ' ' || nptr[0] == '\t' || nptr[0] == '\f'
+		|| nptr[0] == '\v' || nptr[0] == '\r' || nptr[0] == '\n')
+				nptr++;
+	if (nptr[0] == '-')
 	{
-		if (*str < 48 || *str > 57)
-		{
-			return (0);
-		}
-		v = (v * 10) + (*str - 48);
-		str++;
+		isnegative = -1;
+		nptr++;
 	}
-	return (v);
+	else if (nptr[0] == '+')
+		nptr++;
+	while (nptr[0] >= '0' && nptr[0] <= '9')
+	{
+		nbr = (nbr * 10) + nptr[0] - 48;
+		nptr++;
+	}
+	nbr = nbr * isnegative;
+	return ((int)nbr);
 }

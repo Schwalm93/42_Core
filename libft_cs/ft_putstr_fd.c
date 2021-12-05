@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschwalm <cschwalm@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 07:54:05 by cschwalm          #+#    #+#             */
-/*   Updated: 2021/11/25 07:56:55 by cschwalm         ###   ########.fr       */
+/*   Updated: 2021/12/04 10:59:34 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	unsigned int		i;
-	char				c;
+	int	len;
+	int	i;
 
 	i = 0;
-	while (s[i] != 0)
+	if (s == NULL)
+		return ;
+	len = ft_strlen(s);
+	while (i < len)
 	{
-		c = s[i];
-		write(fd, &c, 1);
+		write (fd, &s[i], 1);
 		i++;
 	}
 }
