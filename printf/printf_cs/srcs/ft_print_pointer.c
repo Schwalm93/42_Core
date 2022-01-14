@@ -48,8 +48,8 @@ int	ft_print_pointer(unsigned long n)
 	count = 0;
 	if (n == 0)
 	{
-		ft_putstr("(nil)");
-		return (5);
+		ft_putstr("0x0");
+		return (3);
 	}
 	ft_putstr("0x");
 	ft_printnbr_hex(n);
