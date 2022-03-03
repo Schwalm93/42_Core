@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 05:24:48 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/02/25 10:56:09 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/03 10:27:12 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	init_stacks(t_stacks *stack, int argc)
 	stack->chunk_count = 0;
 	stack->a = malloc(sizeof(int) * (argc - 1));
 	if (!stack->a)
-		exit(0);
+		exit(1);
 	stack->b = malloc(sizeof(int) * (argc - 1));
 	if (!stack->b)
-		exit(0);
+		exit(1);
 	stack->chunks = malloc(sizeof(int) * (argc - 1));
 	if (!stack->chunks)
-		exit(0);
+		exit(1);
 }

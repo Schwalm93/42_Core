@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 12:39:09 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/02/27 06:02:58 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/03 10:27:47 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	action_ra(t_stacks *stack)
 	}
 	stack->a[i] = temp;
 	stack->count_moves++;
-	stack->count_2 += 1;
 	ft_putstr_fd("ra\n", 1);
 }
 
@@ -44,7 +43,6 @@ void	action_rb(t_stacks *stack)
 	}
 	stack->b[i] = temp;
 	stack->count_moves++;
-	stack->count_2 += 1;
 	ft_putstr_fd("rb\n", 1);
 }
 

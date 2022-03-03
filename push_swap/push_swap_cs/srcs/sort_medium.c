@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:44:11 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/02/27 06:00:14 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/03 10:18:57 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	sort_medium(t_stacks *stack)
 	int	i;
 
 	i = 0;
-	printf("---------Actions---------\n");
 	while (i < stack->n_values)
 	{
 		check_next_n(stack);
@@ -58,11 +57,4 @@ void	sort_medium(t_stacks *stack)
 	rotate_back(stack);
 	rotate_back(stack);
 	move_all_to_a(stack);
-	while (i != -1)
-	{
-		printf("Stack_a[%d] = %d\n", i, stack->a[i]);
-		i--;
-	}
-	printf("-------------------------\n");
-	printf("Sum moves = %d\n", stack->count_moves);
 }

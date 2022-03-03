@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 06:35:40 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/02/27 06:02:32 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/03 10:19:10 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,4 @@ void	check_next_n(t_stacks *stack)
 		}
 		i++;
 	}
-	printf("Hold 1 = %d\n", stack->hold_first);
-	printf("Hold 2 = %d\n", stack->hold_second);
 }

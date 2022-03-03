@@ -6,11 +6,12 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 04:46:15 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/02/27 05:52:19 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/03 10:39:48 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	push_swap(t_stacks *stack)
 {

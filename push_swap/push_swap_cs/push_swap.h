@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 04:46:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/02/27 06:25:33 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/03 10:28:26 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-#include <stdio.h>
 
 typedef struct s_stacks
 {
@@ -33,10 +32,8 @@ typedef struct s_stacks
 	int	position_n;
 	int	position_n_s;
 	int	count_moves;
-	int	count_2;
 	int	rotate;
 	int	temp;
-	int	temp2;
 }	t_stacks;
 
 void	error_input(int argc, char *argv[]);

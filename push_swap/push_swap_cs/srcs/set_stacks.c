@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:51:13 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/02/25 09:40:48 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/03 10:11:24 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,15 @@ int	set_biggest_n(t_stacks *stack)
 
 void	set_n_chunks(t_stacks *stack)
 {
-	if (stack->n_values >= 25)
-		stack->n_chunks = stack->n_values / 25;
-	if ((stack->n_values % 25) > 0)
-		stack->n_chunks++;
+	if (stack->n_values < 25)
+		stack->n_chunks = 1;
+	else
+	{
+		if (stack->n_values >= 25)
+			stack->n_chunks = stack->n_values / 25;
+		if ((stack->n_values % 25) > 0)
+			stack->n_chunks++;
+	}
 }
 
 void	set_chunks_limit(t_stacks *stack, int k, int i, int temp)
@@ -86,7 +91,6 @@ void	set_chunks(t_stacks *stack)
 		}
 		j = 0;
 		stack->chunks[k] = stack->temp;
-		printf("chunk limit = %d\n", stack->chunks[k]);
 		k++;
 		stack->chunks[k] = set_biggest_n(stack);
 	}
