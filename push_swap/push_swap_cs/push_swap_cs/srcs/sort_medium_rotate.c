@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ascending.c                                  :+:      :+:    :+:   */
+/*   sort_medium_rotate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 05:37:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/04 02:19:15 by cschwalm         ###   ########.fr       */
+/*   Created: 2022/02/27 05:53:25 by cschwalm          #+#    #+#             */
+/*   Updated: 2022/02/27 06:24:43 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-#include <stdio.h>
-
-int	check_ascending(t_stacks *stack)
+void	rotate_back(t_stacks *stack)
 {
-	int	i;
-
-	i = 0;
-	while (i < stack->n_values - 1)
+	while (stack->rotate > 0)
 	{
-		if (stack->a[i] < stack->a[i + 1])
-			return (0);
-		i++;
+		action_rrb(stack);
+		stack->rotate--;
 	}
-	return (1);
+}
+
+void	rotate_b(t_stacks *stack)
+{
+	while (stack->rotate > 0)
+	{
+		action_rrb(stack);
+		stack->rotate--;
+	}
+}
+
+void	rotate_and_decrease(t_stacks *stack)
+{
+	action_rrb(stack);
+	stack->rotate--;
+}
+
+void	rotate_and_increase(t_stacks *stack)
+{
+	action_rb(stack);
+	stack->rotate++;
 }

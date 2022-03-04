@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ascending.c                                  :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 05:37:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/04 02:19:15 by cschwalm         ###   ########.fr       */
+/*   Created: 2021/11/25 07:54:05 by cschwalm          #+#    #+#             */
+/*   Updated: 2022/02/17 04:51:14 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-#include <stdio.h>
-
-int	check_ascending(t_stacks *stack)
+void	ft_putstr_fd(char *s, int fd)
 {
+	int	len;
 	int	i;
 
 	i = 0;
-	while (i < stack->n_values - 1)
+	if (s == NULL)
+		return ;
+	len = ft_strlen(s);
+	while (i < len)
 	{
-		if (stack->a[i] < stack->a[i + 1])
-			return (0);
+		write (fd, &s[i], 1);
 		i++;
 	}
-	return (1);
 }

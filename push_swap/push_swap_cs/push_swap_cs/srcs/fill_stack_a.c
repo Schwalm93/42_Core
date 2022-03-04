@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ascending.c                                  :+:      :+:    :+:   */
+/*   fill_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 05:37:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/04 02:19:15 by cschwalm         ###   ########.fr       */
+/*   Created: 2022/02/17 11:23:42 by cschwalm          #+#    #+#             */
+/*   Updated: 2022/02/24 13:51:49 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-#include <stdio.h>
-
-int	check_ascending(t_stacks *stack)
+void	fill_stack_a(t_stacks *stack, int argc, char *argv[])
 {
 	int	i;
 
 	i = 0;
-	while (i < stack->n_values - 1)
+	while (--argc > 0)
 	{
-		if (stack->a[i] < stack->a[i + 1])
-			return (0);
+		stack->a[i] = ft_atoi(argv[i + 1]);
 		i++;
+		stack->top_a++;
 	}
-	return (1);
+	set_chunks(stack);
 }

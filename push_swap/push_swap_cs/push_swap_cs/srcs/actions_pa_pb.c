@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_ascending.c                                  :+:      :+:    :+:   */
+/*   actions_pa_pb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/27 05:37:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/04 02:19:15 by cschwalm         ###   ########.fr       */
+/*   Created: 2022/02/17 14:33:12 by cschwalm          #+#    #+#             */
+/*   Updated: 2022/02/25 11:07:04 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-#include <stdio.h>
-
-int	check_ascending(t_stacks *stack)
+void	action_pa(t_stacks *stack)
 {
-	int	i;
+	stack->top_a++;
+	stack->a[stack->top_a] = stack->b[stack->top_b];
+	stack->b[stack->top_b] = 0;
+	stack->top_b--;
+	stack->count_moves++;
+	stack->count_2 += 1;
+	ft_putstr_fd("pa\n", 1);
+}
 
-	i = 0;
-	while (i < stack->n_values - 1)
-	{
-		if (stack->a[i] < stack->a[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
+void	action_pb(t_stacks *stack)
+{
+	stack->top_b++;
+	stack->b[stack->top_b] = stack->a[stack->top_a];
+	stack->a[stack->top_a] = 0;
+	stack->top_a--;
+	stack->count_moves++;
+	stack->count_2 += 1;
+	ft_putstr_fd("pb\n", 1);
 }

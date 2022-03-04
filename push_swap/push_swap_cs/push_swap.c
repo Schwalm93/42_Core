@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 04:46:15 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/03 10:39:48 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/04 02:13:33 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 
 void	push_swap(t_stacks *stack)
 {
-	if (stack->n_values < 6)
+	if (stack->n_values < 6 && !check_ascending(stack))
 		sort_small(stack);
-	else if (stack->n_values <= 5000)
+	else if (stack->n_values <= 5000 && !check_ascending(stack))
 		sort_medium(stack);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_stacks	stack;
-
+	
+	if (argc < 3)
+		exit(0);
 	error_input(argc, argv);
 	init_stacks(&stack, argc);
 	fill_stack_a(&stack, argc, argv);
