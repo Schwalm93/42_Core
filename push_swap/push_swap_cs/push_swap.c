@@ -6,12 +6,11 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 04:46:15 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/04 02:13:33 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/05 03:10:14 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	push_swap(t_stacks *stack)
 {
@@ -24,7 +23,7 @@ void	push_swap(t_stacks *stack)
 int	main(int argc, char *argv[])
 {
 	t_stacks	stack;
-	
+
 	if (argc < 3)
 		exit(0);
 	error_input(argc, argv);

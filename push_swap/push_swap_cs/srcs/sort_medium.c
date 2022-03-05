@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:44:11 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/03 10:18:57 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/05 02:53:04 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,12 @@ void	algorithm(t_stacks *stack)
 
 void	sort_medium(t_stacks *stack)
 {
-	int	i;
-
-	i = 0;
-	while (i < stack->n_values)
+	while (stack->top_a > 0)
 	{
 		check_next_n(stack);
 		if (stack->top_a != 0)
 			algorithm(stack);
-		i++;
 	}
-	i = (stack->n_values - 1);
-	rotate_back(stack);
 	rotate_back(stack);
 	move_all_to_a(stack);
 }

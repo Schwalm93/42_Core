@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 05:53:25 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/02/27 06:24:43 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/05 02:56:20 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	rotate_back(t_stacks *stack)
 {
+	if (stack->top_a != -1)
+		move_n_to_b(stack, stack->a[stack->bot]);
 	while (stack->rotate > 0)
 	{
 		action_rrb(stack);

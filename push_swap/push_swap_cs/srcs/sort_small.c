@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 01:47:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/04 02:15:57 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/03/05 03:07:51 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	sort_below_four(t_stacks *stack)
 			action_rra(stack);
 			action_sa(stack);
 		}
+		if (stack->a[stack->top_a] > stack->a[stack->top_a - 1]
+			&& stack->a[stack->top_a] > stack->a[stack->bot])
+			action_ra(stack);
 		if (stack->a[stack->top_a] > stack->a[stack->top_a - 1])
 			action_sa(stack);
 		if (stack->a[stack->top_a - 1] > stack->a[stack->bot])
