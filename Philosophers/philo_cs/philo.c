@@ -3,90 +3,100 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*   By: cschwalm <cschwalm@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 01:04:13 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/03/31 00:34:58 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/04/20 01:13:55 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-pthread_mutex_t mutex;
-
-void	*function(void *vargp)
+void	*function(void *data)
 {
-	t_data *philo2;
-	if (vargp)
-		philo2 = vargp;
-
-
-	pthread_mutex_lock(&mutex);
-	sleep(3);
-	pthread_mutex_unlock(&mutex);
-	printf("Test2\n");
-	sleep(1);
-	printf("Test3\n");
-	sleep(2);
-	printf("Test4\n");
-	sleep(3);
-	printf("Test5\n");	
-}
-
-/*void	philo(t_data *philos)
-{
-	int i;
+	t_philo	*philo;
+	int		i;
 
 	i = 0;
-	while (i <= philos->n_philos)
+	if (data)
+		philo = data;
+	if (philo->philo_id % 2 == 0)
+		usleep(15000);
+	if (philo->data->n_philos == 1)
 	{
-		if (pthread_create(&philos->att[i].thread, NULL, function, &philos) != 0)
-			exit(1);
+		usleep(philo->data->time_to_die * 1000);
+		message(philo, "died");
+		philo->data->death = 1;
+	}
+	while (philo->data->death == 0 && philo->data->all_eaten != 1)
+	{
+		eating(philo);
+		message(philo, "is sleeping");
+		sleeping(philo);
+		message(philo, "is thinking");
 		i++;
 	}
-	i = 1;
-	while (i <= philos->n_philos)
-	{
-		if (pthread_join(philos->att[i].thread, NULL) != 0)
-			exit(1);
-		i++;
-	}
-
+	return (NULL);
 }
-*/
+
+void	check_max_eat(t_data *data)
+{
+	int	i;
+
+	i = 1;
+	while (i < data->n_philos && data->max_eat != -1
+		&& data->death == 0
+		&& data->philo[i].n_times_eat >= data->max_eat)
+		i++;
+	if (data->death == 0 && data->max_eat != -1 && i == data->n_philos)
+	{
+		pthread_mutex_lock(&data->message);
+		data->all_eaten = 1;
+		usleep(15000);
+		pthread_mutex_unlock(&data->message);
+	}
+}
+
+void	check_status(t_data *data)
+{
+	int	i;
+
+	while (data->death == 0 && data->all_eaten != 1)
+	{
+		i = 1;
+		while (i < data->n_philos && data->death == 0)
+		{
+			pthread_mutex_lock(&data->philo[i].eats);
+			if (timenow() - data->philo[i].start_last_meal >= data->time_to_die)
+			{
+				message(data->philo + i, "is died");
+				data->death = 1;
+			}
+			pthread_mutex_unlock(&data->philo[i].eats);
+			i++;
+			usleep(100);
+		}
+		check_max_eat(data);
+	}
+}
+
 int	main(int argc, char *argv[])
 {
-	t_data philos;
-	int i;
+	t_data			data;
+	int				i;
 
 	i = 1;
-	pthread_mutex_init(&mutex, NULL);
-	error_input(argc, argv);
-	printf("Test1\n");
-
-	init_var(&philos, argc, argv);
-	while (i <= philos.n_philos)
+	if (error_input(argc, argv) == 1 || init(&data, argc, argv) == 1)
+		return (1);
+	while (i <= data.n_philos)
 	{
-		if (pthread_create(&philos.att[i].thread, NULL, function, &philos) != 0)
-			exit(1);
+		if (pthread_create(&data.philo[i].thread,
+				NULL, function, &data.philo[i]) != 0)
+			error_init();
 		i++;
 	}
-	i = 1;
-	while (i <= philos.n_philos)
-	{
-		if (pthread_join(philos.att[i].thread, NULL) != 0)
-			exit(1);
-		i++;
-	}
-//	philo(&philos);
-	pthread_mutex_destroy(&mutex);
-//	free_var();
-	return 0;
+	check_status(&data);
+	if (free_var(&data) == 1)
+		return (1);
+	return (0);
 }
-
-
-// pthread_t t1;
-// if (pthread_create(&t1, NULL, &function, NULL) != 0)
-// { Error }
-// if (pthread_join(t1, NULL) != 0)
-// { Error }

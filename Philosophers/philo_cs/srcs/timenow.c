@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_var.c                                         :+:      :+:    :+:   */
+/*   timenow.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 02:06:17 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/04/09 04:33:20 by cschwalm         ###   ########.fr       */
+/*   Created: 2022/03/29 11:22:31 by cschwalm          #+#    #+#             */
+/*   Updated: 2022/04/07 01:51:54 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	free_var(t_data *data)
+long long	timenow(void)
 {
-	int	i;
+	struct timeval	time;
 
-	i = 1;
-	while (i <= data->n_philos)
-	{
-		if (pthread_join(data->philo[i].thread, NULL) != 0)
-			return (1);
-		i++;
-	}
-	i = 1;
-	while (i <= data->n_philos)
-	{
-		usleep(1000);
-		pthread_mutex_destroy(&data->fork[i]);
-		i++;
-	}
-	pthread_mutex_destroy(&data->message);
-	return (0);
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
