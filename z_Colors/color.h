@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 04:52:17 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/05/01 04:55:43 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/05/01 07:13:24 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,7 @@
 # define ANSI_COLOR_CYAN		"\x1b[36m"
 # define CYAN					6
 # define ANSI_COLOR_RESET		"\x1b[0m"
+
+void	printc(char *string, int color);
+
 #endif
