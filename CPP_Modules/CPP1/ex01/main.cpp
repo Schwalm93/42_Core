@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/13 12:06:48 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/07/15 04:57:02 by cschwalm         ###   ########.fr       */
+/*   Created: 2022/07/13 12:05:33 by cschwalm          #+#    #+#             */
+/*   Updated: 2022/07/15 05:19:57 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-
-void Zombie::announce()
+int	main(void)
 {
-	std::cout << this->_name << ":" << "BraiiiiiiinnnzzzZ..." << std::endl;
-}
+	int n;
 
-Zombie::Zombie()
-{
+	n = 3;
+	Zombie *tmp = zombieHorde(n, "Brainden");
+
+	for (size_t i = 0; i < n; i++)
+	{
+		tmp[i].announce();
+	}
+	delete[] tmp;
 	
-}
-
-Zombie::Zombie(std::string name)
-{
-	this->_name = name;
-}
-
-Zombie::~Zombie()
-{
-	std::cout << this->_name << " destroyed" << std::endl;
+	return (0);
 }

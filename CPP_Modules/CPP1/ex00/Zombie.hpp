@@ -6,7 +6,7 @@
 /*   By: cschwalm <cschwalm@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:06:36 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/07/13 13:14:12 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/07/15 04:56:37 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ class Zombie
 {
 public:
 
+	Zombie();
 	Zombie(std::string name);
 	~Zombie();
-	Zombie* newZombie(std::string name);
-	void	randomChump(std::string name);
 	void announce();
 
 private:
@@ -29,5 +28,8 @@ private:
 	std::string _name;
 
 };
+
+Zombie* newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif
