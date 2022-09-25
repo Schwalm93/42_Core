@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 07:33:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/09/23 08:52:18 by cschwalm         ###   ########.fr       */
+/*   Created: 2022/09/22 07:32:50 by cschwalm          #+#    #+#             */
+/*   Updated: 2022/09/23 09:25:42 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#if !defined(DOG_HPP)
-#define DOG_HPP
+#if !defined(WRONGCAT_HPP)
+#define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include <iostream>
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
 private:
-    /* data */
+	/* data */
 public:
-    Dog();
-    Dog(Dog const &copy);
-    Dog const &operator=(Dog const &rhs);
-    ~Dog();
-    void makeSound() const;
+	WrongCat();
+	WrongCat(WrongCat const &copy);
+	WrongCat const &operator=(WrongCat const &rhs);
+	~WrongCat();
+	void makeSound() const;
 };
 
+#endif // MACRO
 
-#endif // DOG_HPP
 
 

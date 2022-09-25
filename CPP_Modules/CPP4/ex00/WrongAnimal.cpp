@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 07:11:48 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/09/23 08:54:00 by cschwalm         ###   ########.fr       */
+/*   Updated: 2022/09/23 08:57:38 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
 	this->_type = "Undefined Animal";
 	std::cout << "Base Constructor called" << std::endl;
 }
 
-Animal::Animal(Animal const &copy)
+WrongAnimal::WrongAnimal(WrongAnimal const &copy)
 {
 	this->_type = copy._type;
 	std::cout << "Base Copy-Constructor called" << std::endl;
 }
 
-Animal const &Animal::operator=(Animal const &rhs)
+WrongAnimal const &WrongAnimal::operator=(WrongAnimal const &rhs)
 {
 	this->_type = rhs._type;
 	std::cout << "Base Assignment-Constructor called" << std::endl;
 	return (*this);
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
 	std::cout << "Base Destructor called" << std::endl;
 }
 
-std::string Animal::getType() const
+std::string WrongAnimal::getType() const
 {
 	return (this->_type);
 }
 
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
 	std::cout << "*Undefined Noises*" << std::endl;
 }

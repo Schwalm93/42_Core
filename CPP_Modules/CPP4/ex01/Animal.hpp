@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cschwalm <cschwalm@students.42wolfsburg.de +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 07:33:26 by cschwalm          #+#    #+#             */
-/*   Updated: 2022/09/23 08:52:18 by cschwalm         ###   ########.fr       */
+/*   Created: 2022/09/22 07:11:32 by cschwalm          #+#    #+#             */
+/*   Updated: 2022/09/25 09:41:31 by cschwalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#if !defined(DOG_HPP)
-#define DOG_HPP
-
-#include "Animal.hpp"
+#if !defined(ANIMAL_HPP)
+#define ANIMAL_HPP
 #include <iostream>
+#include "Brain.hpp"
 
-class Dog : public Animal
+class Animal
 {
-private:
-    /* data */
+protected:
+	std::string _type;
 public:
-    Dog();
-    Dog(Dog const &copy);
-    Dog const &operator=(Dog const &rhs);
-    ~Dog();
-    void makeSound() const;
+	Animal(void);
+	Animal(Animal const &copy);
+	Animal const &operator=(Animal const &rhs);
+	virtual ~Animal();
+	virtual void makeSound() const;
+	std::string getType() const;
 };
 
 
-#endif // DOG_HPP
+
+#endif // ANIMAL_HPP
+
 
 
