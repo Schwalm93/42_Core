@@ -6,11 +6,11 @@
 | -[4]- | [Ft_Printf](printf) | Recreated C function Printf |
 | -[5]- | [Minitalk](minitalk) | Client & Server Communication (SIGUSR1 & SIGUSR2) |
 | -[6]- | [So_long](so_long) | Little Graphik Project ([take a look](so_long/so_long.png))   |
-| -[7]- | [Push_Swap](push_swap) | test |
-| -[8]- | [Philospohers](Philosophers) | test |
-| -[9]- | [Minishell](minishell) | test |
-| -[10]- | [NetPractice](Netpractice) | test |
-| -[11]- | [Cub3d](cub3d) | test |
+| -[7]- | [Push_Swap](push_swap) | Stack sorting Algorithm |
+| -[8]- | [Philospohers](Philosophers) | Threads and Mutex |
+| -[9]- | [Minishell](minishell) | Recreated Bash Shell |
+| -[10]- | [NetPractice](Netpractice) | Networking (IP-Masks) |
+| -[11]- | [Cub3d](cub3d) | Raycasting  |
 | -[12]- | [CPP_Module00](CPP_Modules/CPP0) | test |
 | -[13]- | [CPP_Module01](CPP_Modules/CPP1) | test |
 | -[14]- | [CPP_Module02](CPP_Modules/CPP2) | test |
