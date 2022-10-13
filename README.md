@@ -13,3 +13,10 @@
 | -[11]- | [Cub3d](cub3d) | test |
 | -[12]- | [CPP_Module00](CPP_Modules/CPP0) | test |
 | -[13]- | [CPP_Module01](CPP_Modules/CPP1) | test |
+| -[14]- | [CPP_Module02](CPP_Modules/CPP2) | test |
+| -[15]- | [CPP_Module03](CPP_Modules/CPP3) | test |
+| -[16]- | [CPP_Module04](CPP_Modules/CPP4) | test |
+| -[17]- | [CPP_Module05](CPP_Modules/CPP5) | test |
+| -[18]- | [CPP_Module06](CPP_Modules/CPP6) | test |
+| -[19]- | [CPP_Module07](CPP_Modules/CPP7) | test |
+| -[20]- | [CPP_Module08](CPP_Modules/CPP8) | test |
