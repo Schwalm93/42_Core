@@ -5,7 +5,7 @@
 | -[3]- | [Get_next_line](get_next_line) | reading from a Filedescriptor |
 | -[4]- | [Ft_Printf](printf) | Recreated C function Printf |
 | -[5]- | [Minitalk](minitalk) | Client & Server Communication (SIGUSR1 & SIGUSR2) |
-| -[6]- | [So_long](so_long) | Little Graphik Project ([take a look](so_long/so_long.png))   |
+| -[6]- | [So_long](so_long) | Small Graphic Project ([take a look](so_long/so_long.png))   |
 | -[7]- | [Push_Swap](push_swap) | Stack sorting Algorithm |
 | -[8]- | [Philospohers](Philosophers) | Threads and Mutex |
 | -[9]- | [Minishell](minishell) | Recreated Bash Shell (Group Project) |
